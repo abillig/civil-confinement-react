@@ -11,7 +11,7 @@ import prisonerCollection from './prisonerCollection.js';
 // import thunk from 'redux-thunk';
 // import reducers from './reducers';
 
-import App from './components/App';
+import ViewToggle from './components/ViewToggle';
 // import 'spectre.css/dist/spectre.min.css';
 import './index.css';
 
@@ -28,6 +28,6 @@ import './index.css';
 //
 //
 ReactDOM.render(
-  <App prisoners={prisonerCollection}/>,
+  <ViewToggle prisoners={prisonerCollection}/>,
   document.getElementById('root')
 );

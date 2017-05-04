@@ -33,7 +33,7 @@ color: rgba(0, 0, 0, .75);
 #headline{
   width: 70%;
   margin-left: 15%;
-  font-size: 8.0vh;
+  font-size: 6.0vh;
   text-align: center;
 
 }
@@ -61,7 +61,7 @@ color: rgba(0, 0, 0, .75);
   /*height: 30px;*/
 
       /*width: 30%;*/
-    max-width: 30px;
+    max-width: 2.5vw;
   display: inline-block;
   box-shadow: 0 0 8px rgba(0,0,0,.35);
   margin: 1px;
@@ -69,8 +69,12 @@ color: rgba(0, 0, 0, .75);
   cursor: pointer;
 }
 
+.darkened{
+  opacity: .1;
+}
+
 .image{
-  height: 30px;
+  height: 4vh;
   width: 100%;
   max-width: 250px;
   -moz-border-radius: 0px;
@@ -100,6 +104,39 @@ border-radius: 3px 3px 0px 0px;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modalImage{
+  max-width: 20vw;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+
+}
+
+.prisonerProfile{
+  margin: 5%;
+}
+
+.prisonerName{
+  font-size: 4.0vw;
+}
+
+.prisonerDetailField{
+  font-size: 2.0vw;
+}
+
+.modalImageContainer{
+  width: 30%;
+  margin: 5%;
+  display: inline-block;
+}
+
+.prisonerDetails{
+  width: 50%;
+  margin: 5%;
+  /*margin-right: 10%;*/
+  display: inline-block;
+
 }
 
 /* Modal Content */

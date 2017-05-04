@@ -13,7 +13,7 @@ export default class PrisonerCard extends Component {
     var prisonerClass = "card"
     var imageBackground = {backgroundImage: 'url(' + prisoner["imageURL"] + ')'}
     return (
-      <div className={prisonerClass} onClick={this.openModal.bind(this)}>
+      <div className={this.props.prisonerClass} onClick={this.openModal.bind(this)}>
         <img src={prisoner["imageURL"].replace(/\//g, '%3A').replace(/\?/g, '%3F') + '.jpeg'} className="image"/>
 
       </div>

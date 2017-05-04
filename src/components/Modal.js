@@ -11,13 +11,12 @@ export default class Modal extends Component {
       let backdropStyle = {
         position: 'fixed',
         width: '100%',
-        height: '200%',
+        height: '100vh',
         overflowY: 'scroll',
         // top: window.innerHeight + 'px',
         // left: window.innerWidth + 'px',
         zIndex: '9998',
         background: 'rgba(255, 255, 255, 0.9)',
-            marginTop: '-7%'
             }
 
       let closeButton = {

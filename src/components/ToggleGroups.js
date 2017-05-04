@@ -6,6 +6,7 @@ export default class ToggleGroups extends Component {
 
   handleToggle(e) {
     this.props.switchGroup(e.value)
+    this._onSelect
   }
 
   render() {
@@ -13,10 +14,10 @@ export default class ToggleGroups extends Component {
         <div>
         <br></br>  <br></br>
           <div id="dropdowns">
-            <Dropdown id="race-dropdown" options={["All races", "White", "Black", "Other", "Unknown"]} onChange={this.handleToggle.bind(this)} placeholder="Race" />
-            <Dropdown id="race-dropdown" options={["All ethnicities", "Hispanic", "Not Hispanic"]} onChange={this.handleToggle.bind(this)} placeholder="Ethnicity" />
-            <Dropdown id="age-dropdown" options={["All ages", "20-29", "30-39", "40-49", "50-59", "60-69", "70+"]} onChange={this.handleToggle.bind(this)} placeholder="Age" />
-            <Dropdown id="previous-convictions-dropdown" options={["All conviction counts", "0", "1", "2"]} onChange={this.handleToggle.bind(this)} placeholder="Previous Convictions" />
+            <Dropdown id="race-dropdown" options={["All races", "White", "Black", "Indian", "Other", "Unknown"]} onChange={this.handleToggle.bind(this)} placeholder="Select Race" />
+            <Dropdown id="race-dropdown" options={["All ethnicities", "Hispanic", "Not Hispanic", "Unknown"]} onChange={this.handleToggle.bind(this)} placeholder="Select Ethnicity" />
+            <Dropdown id="age-dropdown" options={["All ages", "20-29", "30-39", "40-49", "50-59", "60-69", "70+"]} onChange={this.handleToggle.bind(this)} placeholder="Select Age" />
+            <Dropdown id="previous-convictions-dropdown" options={["All conviction counts", "0", "1", "2"]} onChange={this.handleToggle.bind(this)} placeholder="Select Previous Convictions" />
           </div>
         </div>
         // <div id="groupButtons">
