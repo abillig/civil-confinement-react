@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import PrisonerProfile from './PrisonerProfile';
+import closeModal from '../actions/closeModal'
+import { connect } from 'react-redux'
 
 
-export default class Modal extends Component {
+
+
+class Modal extends Component {
 
   render() {
-    if (this.props.isOpen === false)
+    if (this.props.isModalOpen === false)
       return null
 
       let backdropStyle = {
@@ -40,9 +44,31 @@ export default class Modal extends Component {
 
     close(e) {
       e.preventDefault()
+      this.props.closeModal()
 
-      if (this.props.onClose) {
-        this.props.onClose()
-      }
+      // if (this.props.onClose) {
+      //   this.props.closeModal()
+      // }
     }
   }
+
+  function mapStateToProps(state) {
+    // debugger;
+    return {
+      selectedPrisoner: state.unfilteredApp.selectedPrisoner,
+      isModalOpen: state.unfilteredApp.isModalOpen
+    }
+  }
+
+  // <Header />
+  // <Gallery contents={contentsObject} currentlySelected={this.state.selected}/>
+  //connects redux actions to props
+  // function mapDispatchToProps(dispatch) {
+  //   return bindActionCreators({
+  //     getWantedList: getWantedList,
+  //     addPerson: addPerson,
+  //     clearToast: clearToast
+  //   }, dispatch);
+  // }
+
+  export default connect(mapStateToProps, {closeModal: closeModal})(Modal);

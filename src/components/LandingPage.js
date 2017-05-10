@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
 import ImageCard from './ImageCard';
 import Modal from './Modal';
+import { connect } from 'react-redux'
+import openModal from '../actions/openModal'
 
 
-export default class LandingPage extends Component {
+class LandingPage extends Component {
   swapView(){
     this.props.swapView()
   }
 
   render() {
-    const imageCards = this.props.prisoners.map(prisoner => {
-      // this.setState({displayed: this.state.displayed += 1 })
+
+    const imageCards = this.props.allPrisoners.map(prisoner => {
 
       return <ImageCard
-        switchPrisoner = {this.props.switchPrisoner}
-        openModal={this.props.openModal}
         key={prisoner.name}
         prisoner={prisoner}
         prisonerClass={"card"}/>;
-
   })
 
 
@@ -26,12 +25,12 @@ export default class LandingPage extends Component {
       <div>
       <div className="cards">
         <br></br>
-        <div id="headline"><span>{this.props.prisoners.length}</span> {"people are held under New York's civil confinement law."}</div>
+        <div id="headline"><span>{this.props.allPrisoners.length}</span> {"people are held under New York's civil confinement law."}</div>
 
          {imageCards}
 
       </div>
-      <Modal selectedPrisoner={this.props.selectedPrisoner} isOpen={this.props.isModalOpen} onClose={this.props.closeModal}/>
+      <Modal/>
 
       <div onClick={this.swapView.bind(this)}>Continue</div>
       </div>
@@ -40,3 +39,24 @@ export default class LandingPage extends Component {
     );
   }
 }
+
+
+function mapStateToProps(state) {
+  // debugger;
+  return {
+    allPrisoners: state.unfilteredApp.allPrisoners
+  }
+}
+
+// <Header />
+// <Gallery contents={contentsObject} currentlySelected={this.state.selected}/>
+//connects redux actions to props
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators({
+//     getWantedList: getWantedList,
+//     addPerson: addPerson,
+//     clearToast: clearToast
+//   }, dispatch);
+// }
+
+export default connect(mapStateToProps, null)(LandingPage);

@@ -61,7 +61,7 @@ color: rgba(0, 0, 0, .75);
   /*height: 30px;*/
 
       /*width: 30%;*/
-    max-width: 2.5vw;
+    max-width: 2.0vw;
   display: inline-block;
   box-shadow: 0 0 8px rgba(0,0,0,.35);
   margin: 1px;
@@ -70,8 +70,10 @@ color: rgba(0, 0, 0, .75);
 }
 
 .darkened{
-  opacity: .1;
+  opacity: .15;
 }
+
+
 
 .image{
   height: 4vh;
@@ -110,7 +112,6 @@ border-radius: 3px 3px 0px 0px;
   max-width: 20vw;
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
-
 }
 
 .prisonerProfile{
