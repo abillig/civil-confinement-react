@@ -3,12 +3,9 @@ import { connect } from 'react-redux'
 import openModal from '../actions/openModal'
 import switchSelectedPrisoner from '../actions/switchSelectedPrisoner'
 
-
-
 class PrisonerCard extends Component {
 
   openModal(){
-    // debugger;
     this.props.openModal();
     this.props.switchSelectedPrisoner(this.props.prisoner);
   }
@@ -26,7 +23,6 @@ class PrisonerCard extends Component {
   }
 }
 
-//connects redux actions to props
 function mapStateToProps(state) {
   return {
     allPrisoners: state.unfilteredApp.allPrisoners,
@@ -35,16 +31,4 @@ function mapStateToProps(state) {
     isModalOpen: state.unfilteredApp.isModalOpen
   }
 }
-
-// <Header />
-// <Gallery contents={contentsObject} currentlySelected={this.state.selected}/>
-//connects redux actions to props
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({
-//     getWantedList: getWantedList,
-//     addPerson: addPerson,
-//     clearToast: clearToast
-//   }, dispatch);
-// }
-
 export default connect(mapStateToProps, {openModal: openModal, switchSelectedPrisoner: switchSelectedPrisoner})(PrisonerCard);

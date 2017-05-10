@@ -3,8 +3,6 @@ import prisonerCollection from './prisonerCollection.js';
 import { OPEN_MODAL } from './actions/openModal'
 import { SWITCH_SELECTED_PRISONER } from './actions/switchSelectedPrisoner'
 
-// const { SHOW_ALL } = VisibilityFilters
-
 var initialState = {
   showOpener: true,
   selectedPrisoner: prisonerCollection[0],
@@ -73,33 +71,7 @@ function explainerText(state = explainerTextInitial, action) {
   }
 }
 
-//
-// function todos(state = [], action) {
-//   switch (action.type) {
-//     case ADD_TODO:
-//       return [
-//         ...state,
-//         {
-//           text: action.text,
-//           completed: false
-//         }
-//       ]
-//     case TOGGLE_TODO:
-//       return state.map((todo, index) => {
-//         if (index === action.index) {
-//           return Object.assign({}, todo, {
-//             completed: !todo.completed
-//           })
-//         }
-//         return todo
-//       })
-//     default:
-//       return state
-//   }
-// }
-
 const reactApp = combineReducers({
-  // visibilityFilter,
   selectedGroup, unfilteredApp, explainerText
 })
 

@@ -4,7 +4,6 @@ import Modal from './Modal';
 import ToggleGroups from './ToggleGroups';
 import { connect } from 'react-redux'
 
-
 class FilterView extends Component {
 
   calculateAge(date){
@@ -30,7 +29,6 @@ class FilterView extends Component {
   }
 
   render() {
-
 
     const imageCards = this.props.allPrisoners.map(prisoner => {
       return <ImageCard

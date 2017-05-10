@@ -4,7 +4,6 @@ import Modal from './Modal';
 import { connect } from 'react-redux'
 import openModal from '../actions/openModal'
 
-
 class LandingPage extends Component {
   swapView(){
     this.props.swapView()
@@ -23,18 +22,17 @@ class LandingPage extends Component {
 
     return (
       <div>
-      <div className="cards">
-        <br></br>
-        <div id="headline"><span>{this.props.allPrisoners.length}</span> {"people are held under New York's civil confinement law."}</div>
+        <div className="cards">
+          <br></br>
+          <div id="headline"><span>{this.props.allPrisoners.length}</span> {"people are held under New York's civil confinement law."}</div>
 
-         {imageCards}
+           {imageCards}
 
+           </div>
+        <Modal/>
+
+        <div onClick={this.swapView.bind(this)}>Continue</div>
       </div>
-      <Modal/>
-
-      <div onClick={this.swapView.bind(this)}>Continue</div>
-      </div>
-
 
     );
   }
@@ -42,21 +40,9 @@ class LandingPage extends Component {
 
 
 function mapStateToProps(state) {
-  // debugger;
   return {
     allPrisoners: state.unfilteredApp.allPrisoners
   }
 }
-
-// <Header />
-// <Gallery contents={contentsObject} currentlySelected={this.state.selected}/>
-//connects redux actions to props
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({
-//     getWantedList: getWantedList,
-//     addPerson: addPerson,
-//     clearToast: clearToast
-//   }, dispatch);
-// }
 
 export default connect(mapStateToProps, null)(LandingPage);
