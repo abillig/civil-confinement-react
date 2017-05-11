@@ -4,8 +4,6 @@ import switchSelectedGroup from '../actions/switchSelectedGroup'
 import switchExplainerText from '../actions/switchExplainerText'
 import { connect } from 'react-redux'
 
-
-
 class ToggleGroups extends Component {
 
   handleToggle(e) {
@@ -14,7 +12,6 @@ class ToggleGroups extends Component {
     this.props.switchSelectedGroup(e.value, findCategory(e.value), allMatcher[findCategory(e.value)])
     this.props.switchExplainerText(e.value, findCategory(e.value), allMatcher[findCategory(e.value)])
     this._onSelect
-
 
     function findCategory(word){
       if (categorySelector(["All races", "White", "Black", "Indian", "Other", "Unknown"], word, 'race')) {
@@ -31,9 +28,7 @@ class ToggleGroups extends Component {
         }
         return false
       }
-
     }
-
   }
 
   render() {
@@ -47,13 +42,6 @@ class ToggleGroups extends Component {
             <Dropdown id="previous-convictions-dropdown" options={["All conviction counts", "0", "1", "2"]} onChange={this.handleToggle.bind(this)} placeholder="Previous Convictions" />
           </div>
         </div>
-        // <div id="groupButtons">
-        //   <div className="groupName" onClick={this.handleToggle.bind(this)}>White</div>
-        //   <div className="groupName" onClick={this.handleToggle.bind(this)}>Black</div>
-        //   <div className="groupName" onClick={this.handleToggle.bind(this)}>Other</div>
-        //   <div className="groupName" onClick={this.handleToggle.bind(this)}>Unknown</div>
-        //
-        // </div>
       );
   }
 }
@@ -66,16 +54,5 @@ function mapStateToProps(state) {
     isModalOpen: state.unfilteredApp.isModalOpen
   }
 }
-
-// <Header />
-// <Gallery contents={contentsObject} currentlySelected={this.state.selected}/>
-//connects redux actions to props
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({
-//     getWantedList: getWantedList,
-//     addPerson: addPerson,
-//     clearToast: clearToast
-//   }, dispatch);
-// }
 
 export default connect(null, {switchSelectedGroup: switchSelectedGroup, switchExplainerText: switchExplainerText})(ToggleGroups);

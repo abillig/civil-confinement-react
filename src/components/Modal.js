@@ -3,9 +3,6 @@ import PrisonerProfile from './PrisonerProfile';
 import closeModal from '../actions/closeModal'
 import { connect } from 'react-redux'
 
-
-
-
 class Modal extends Component {
 
   render() {
@@ -17,8 +14,6 @@ class Modal extends Component {
         width: '100%',
         height: '100vh',
         overflowY: 'scroll',
-        // top: window.innerHeight + 'px',
-        // left: window.innerWidth + 'px',
         zIndex: '9998',
         background: 'rgba(255, 255, 255, 0.9)',
             }
@@ -46,9 +41,6 @@ class Modal extends Component {
       e.preventDefault()
       this.props.closeModal()
 
-      // if (this.props.onClose) {
-      //   this.props.closeModal()
-      // }
     }
   }
 
@@ -59,16 +51,5 @@ class Modal extends Component {
       isModalOpen: state.unfilteredApp.isModalOpen
     }
   }
-
-  // <Header />
-  // <Gallery contents={contentsObject} currentlySelected={this.state.selected}/>
-  //connects redux actions to props
-  // function mapDispatchToProps(dispatch) {
-  //   return bindActionCreators({
-  //     getWantedList: getWantedList,
-  //     addPerson: addPerson,
-  //     clearToast: clearToast
-  //   }, dispatch);
-  // }
 
   export default connect(mapStateToProps, {closeModal: closeModal})(Modal);

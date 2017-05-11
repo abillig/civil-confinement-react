@@ -3,11 +3,10 @@ import ImageCard from './ImageCard';
 import Modal from './Modal';
 import { connect } from 'react-redux'
 import openModal from '../actions/openModal'
+import { Link } from 'react-router-dom';
+
 
 class LandingPage extends Component {
-  swapView(){
-    this.props.swapView()
-  }
 
   render() {
 
@@ -18,7 +17,6 @@ class LandingPage extends Component {
         prisoner={prisoner}
         prisonerClass={"card"}/>;
   })
-
 
     return (
       <div>
@@ -31,13 +29,12 @@ class LandingPage extends Component {
            </div>
         <Modal/>
 
-        <div onClick={this.swapView.bind(this)}>Continue</div>
+        <Link to="filter">Continue</Link>
       </div>
 
     );
   }
 }
-
 
 function mapStateToProps(state) {
   return {
