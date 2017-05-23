@@ -27,13 +27,15 @@ function unfilteredApp(state = initialState, action) {
 var explainerTextInitial = {
   race: "Black",
   ethnicity: "",
-  age: ""
+  age: "",
+  risk: ""
 }
 
 var selectedGroupInitial = {
     race: ["All races", "Black", ""],
     ethnicity: ["All ethnicities", "White", "Not Hispanic", "Hispanic", "Unknown", ""],
-    age: ["All ages", "20-29", "30-39", "40-49", "50-59", "60-69", "70+", ""]
+    age: ["All ages", "20-29", "30-39", "40-49", "50-59", "60-69", "70+", ""],
+    risk: ["All risk levels", "2", "3"]
 }
 
 function selectedGroup(state=selectedGroupInitial, action) {
@@ -42,7 +44,8 @@ function selectedGroup(state=selectedGroupInitial, action) {
       var newObject = {}
       var allCategories = {"race": ["All races", "White", "Black", "Indian", "Other", "Unknown", ""],
                             "ethnicity": ["All ethnicities", "White", "Not Hispanic", "Hispanic", "Unknown", ""],
-                            "age": ["All ages", "20-29", "30-39", "40-49", "50-59", "60-69", "70+", ""]}
+                            "age": ["All ages", "20-29", "30-39", "40-49", "50-59", "60-69", "70+", ""],
+                            "risk": ["All risk levels", "2", "3"]}
       if(action.allOption === action.selectedGroup) {
         newObject[action.category] = allCategories[action.category]
       } else {
@@ -58,12 +61,18 @@ function explainerText(state = explainerTextInitial, action) {
   switch (action.type){
     case 'SWITCH_EXPLAINER_TEXT':
       var newObject = {}
-      var introText = {"race": "", "ethnicity": " ", "age": " between the ages of "}
+      var introText = {"race": "", "ethnicity": " ", "age": " between the ages of ", "risk": " level "}
       if(action.allOption === action.selectedGroup) {
         newObject[action.category] = ""
         return Object.assign({}, state, newObject)
       } else {
-        newObject[action.category] = introText[action.category] + action.selectedGroup
+        if(action.selectedGroup === "70+"){
+          newObject[action.category] = " over 70"
+        } else if (action.category === "age"){
+          newObject[action.category] = introText[action.category] + action.selectedGroup.replace(/-/g, ' and ')
+        }else {
+          newObject[action.category] = introText[action.category] + action.selectedGroup
+        }
         return Object.assign({}, state, newObject)
       }
     default:

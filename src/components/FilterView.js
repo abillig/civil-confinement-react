@@ -7,17 +7,17 @@ import { connect } from 'react-redux'
 class FilterView extends Component {
 
   calculateAge(date){
-    if (date > 1988) {
+    if (date >= 1988) {
       return "20-29"
-    } else if (date > 1978 && date <= 1988) {
+    } else if (date >= 1978 && date < 1988) {
       return "30-39"
-    } else if (date > 1968 && date <= 1978) {
+    } else if (date >= 1968 && date < 1978) {
       return "40-49"
-    } else if (date > 1958 && date <= 1968) {
+    } else if (date >= 1958 && date < 1968) {
       return "50-59"
-    } else if (date > 1947 && date <= 1958) {
+    } else if (date >= 1948 && date < 1958) {
       return "60-69"
-    } else if (date <= 1947) {
+    } else if (date < 1948) {
       return "70+"
     }
   }
@@ -26,6 +26,7 @@ class FilterView extends Component {
     return   this.props.selectedGroup.race.includes(prisoner.Race)
     && this.props.selectedGroup.ethnicity.includes(prisoner.Ethnicity)
     && this.props.selectedGroup.age.includes(this.calculateAge(Number(prisoner.dateOfBirth.substring(prisoner.dateOfBirth.length - 4, prisoner.dateOfBirth.length))))
+    && this.props.selectedGroup.risk.includes(String(prisoner.riskLevel))
   }
 
   render() {
@@ -42,7 +43,10 @@ class FilterView extends Component {
   })
 
   const headline = displayed.length === 321 ?
-    "321 people are held under civil confinement in New York." : 'Of 321 people held under civil confinement in New York, ' + displayed.length + '  are ' + this.props.explainerText.race + this.props.explainerText.ethnicity + this.props.explainerText.age
+    "321 people are held under civil confinement in New York." : 'Of 321 people held under civil confinement in New York, ' + displayed.length + ' ('+ Math.round((displayed.length / 321) * 100) +'%)  are ' +
+    this.props.explainerText.race +
+    this.props.explainerText.risk +
+    this.props.explainerText.ethnicity + ' offenders' + this.props.explainerText.age
 
     return (
       <div>

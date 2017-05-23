@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class ToggleGroups extends Component {
 
   handleToggle(e) {
-    var allMatcher = {"race": "All races", "ethnicity": "All ethnicities", "age": "All ages"}
+    var allMatcher = {"race": "All races", "ethnicity": "All ethnicities", "age": "All ages", "risk": "All risk levels"}
 
     this.props.switchSelectedGroup(e.value, findCategory(e.value), allMatcher[findCategory(e.value)])
     this.props.switchExplainerText(e.value, findCategory(e.value), allMatcher[findCategory(e.value)])
@@ -20,7 +20,10 @@ class ToggleGroups extends Component {
         return (categorySelector(["All ethnicities", "Hispanic", "Not Hispanic", "Unknown"], word, 'ethnicity'))
       } else if (categorySelector(["All ages", "20-29", "30-39", "40-49", "50-59", "60-69", "70+"], word, 'age')) {
         return (categorySelector(["All ages", "20-29", "30-39", "40-49", "50-59", "60-69", "70+"], word, 'age'))
+      } else if (categorySelector(["All risk levels", "2", "3"], word, 'risk')) {
+        return (categorySelector(["All risk levels", "2", "3"], word, 'risk'))
       }
+
       function categorySelector(optionsArray, searchWord, category){
         // debugger;
         if(optionsArray.includes(searchWord)){
@@ -36,10 +39,10 @@ class ToggleGroups extends Component {
         <div>
         <br></br>  <br></br>
           <div id="dropdowns" >
-            <Dropdown id="race-dropdown" label="race" options={["All races", "White", "Black", "Indian", "Other", "Unknown"]} onChange={this.handleToggle.bind(this)} placeholder="Select Race" />
-            <Dropdown id="ethnicity-dropdown" options={["All ethnicities", "Hispanic", "Not Hispanic", "Unknown"]} onChange={this.handleToggle.bind(this)} placeholder="Select Ethnicity" />
-            <Dropdown id="age-dropdown" options={["All ages", "20-29", "30-39", "40-49", "50-59", "60-69", "70+"]} onChange={this.handleToggle.bind(this)} placeholder="Select Age" />
-            <Dropdown id="previous-convictions-dropdown" options={["All conviction counts", "0", "1", "2"]} onChange={this.handleToggle.bind(this)} placeholder="Previous Convictions" />
+            <Dropdown id="race-dropdown" label="race" options={["All races", "White", "Black", "Indian", "Other", "Unknown"]} onChange={this.handleToggle.bind(this)} placeholder="Black"> a</Dropdown>
+            <Dropdown id="ethnicity-dropdown" options={["All ethnicities", "Hispanic", "Not Hispanic"]} onChange={this.handleToggle.bind(this)} placeholder="All Ethnicities" />
+            <Dropdown id="age-dropdown" options={["All ages", "20-29", "30-39", "40-49", "50-59", "60-69", "70+"]} onChange={this.handleToggle.bind(this)} placeholder="All Ages" />
+            <Dropdown id="risk-dropdown" options={["All risk levels", "2", "3"]} onChange={this.handleToggle.bind(this)} placeholder="All Risk Level" />
           </div>
         </div>
       );

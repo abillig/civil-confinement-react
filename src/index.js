@@ -14,6 +14,7 @@ const history = createBrowserHistory()
 
 import LandingPage from './components/LandingPage';
 import ViewToggle from './components/ViewToggle';
+import FilterView from './components/FilterView'
 import './index.css';
 
 // var browserHistory = ReactRouter.browserHistory;
@@ -27,7 +28,7 @@ ReactDOM.render(
   <Provider store={store}>
   <Router history={history}>
     <div>
-      <Route path="/" component={LandingPage}/>
+      <Route path="/" component={FilterView}/>
         <Route path="/filter" component={ViewToggle} />
 
     </div>
