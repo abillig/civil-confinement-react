@@ -3,6 +3,7 @@ import ImageCard from './ImageCard';
 import Modal from './Modal';
 import ToggleGroups from './ToggleGroups';
 import { connect } from 'react-redux'
+import Navbar from './Navbar';
 
 class FilterView extends Component {
 
@@ -42,8 +43,8 @@ class FilterView extends Component {
     return this.prisonerIsIncludedInFilteredGroup(prisoner)
   })
 
-  const headline = displayed.length === 321 ?
-    "321 people are held under civil confinement in New York." : 'Of 321 people held under civil confinement in New York, ' + displayed.length + ' ('+ Math.round((displayed.length / 321) * 100) +'%)  are ' +
+  const headline = displayed.length === 322 ?
+    "321 people are held under civil confinement in New York." : 'Of 322 people held under civil confinement in New York, ' + displayed.length + ' ('+ Math.round((displayed.length / 322) * 100) +'%)  are ' +
     this.props.explainerText.race +
     this.props.explainerText.risk +
     this.props.explainerText.ethnicity + ' offenders' + this.props.explainerText.age
@@ -51,6 +52,7 @@ class FilterView extends Component {
     return (
       <div>
         <Modal/>
+        <Navbar />
 
           <div id="headline">
             {headline}

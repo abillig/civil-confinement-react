@@ -167,6 +167,12 @@ border-radius: 3px 3px 0px 0px;
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
+#logo{
+  width: 32%;
+  opacity: .9;
+  margin-top: 2%;
+}
+
 .image{
   height: 4vh;
   width: 100%;
@@ -234,6 +240,20 @@ outline: none;
 padding: 8px 52px 8px 10px;
 transition: all 200ms ease;
 /*width: 20%;*/
+}
+
+#nav{
+  width: 100%;
+  /*position: absolute;*/
+  /*background-color: black;*/
+  height: 10vh;
+}
+
+#logo{
+  width: 12%;
+  opacity: .9;
+  margin-top: 1%;
+  margin-left: 1%;
 }
 
 .Dropdown-arrow {
